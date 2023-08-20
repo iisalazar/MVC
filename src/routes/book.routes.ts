@@ -10,6 +10,6 @@ export async function BookRoutes(
 ) {
 	const service = new BookService(client);
 	const books = new BookController(service);
-	app.get(`${baseRoute}/`, books.getAllBooks);
+	app.get(`${baseRoute}/`, books.getAllBooks.bind(books));
 	return app;
 }
